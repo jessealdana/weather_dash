@@ -8,16 +8,6 @@ $(document).ready(function() {
         var city = $("#city-input").val();
        searchWeather(city);
 
-
-          // if (city === "") {
-          //console.log("bonjour")
-          //query the database for current weather of userChoice city
-
-                //create mod to account for the new forecast updated by the app every 3 hours, or 8 times a day
-
-    
-
-        // }        
     })
 
     function getForecast (city) {
@@ -76,8 +66,63 @@ $(document).ready(function() {
         $(".uvIndex").text("UV Index: " + response.value);
         getForecast(city);
 
+
       });
 
+
     }
+
+    var cityInput = document.querySelector("#find-city");
+    var cityList = document.querySelector("#city-list");
+    var cityForm = document.querySelector("#city-form");
+
+    var cities = [];
+    init();
+
+    function renderCities() {
+      cityList.innerHTML = "";
+
+
+      for (var i = 0; i < cities.length; i++) {
+        var city = cities[i];
+        console.log("adieu")
+        var li = document.createElement("li");
+        li.textContent = cityInput;
+        li.setAttribute("data-index", i);
+
+        li.appendChild(li);
+      }
+
+    }
+
+     function init() {
+       var storedCities = JSON.parse(localStorage.getItem("cities"));
+       if (storedCities !== null) {
+         cities = storedCities;
+       }
+       renderCities();
+     }
+
+     function storeCities() {
+       localStorage.setItem("cities", JSON.stringify(cities));
+     }
+
+     cityForm.addEventListener("search", function(event) {
+       event.preventDefault();
+
+       var cityText = cityInput.value.trim();
+
+       if (cityText === "") {
+         return;
+       }
+
+       cities.push(cityText);
+       cityInput.value = "";
+
+       storeCities();
+       renderCities();
+       });
+
+     
 
 })
