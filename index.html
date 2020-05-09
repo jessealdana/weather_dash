@@ -17,35 +17,36 @@
       <header>Weather Dashboard</header>
 
       <div class="container-fluid">
+        <div class="container">
+          <div class="row">       
+            <div class="col-md-3">
+              <form id="city-form">
+                  <label for="city-input">Search for a city:</label><br>
+                  <input type="text" id="city-input">
 
-        <div class="container col-md-3">
+                  <!-- This button will trigger AJAX call -->
+                  <input id="find-city" type="submit" value="Search">
+              </form>
+            </div>
+            <div class="card col-md-9">
+              <div class="card-body">
+                <p id="date"></p>
 
-          <form id="city-form">
-              <label for="city-input">Search for a city:</label><br>
-              <input type="text" id="city-input">
-
-              <!-- This button will trigger our AJAX call -->
-              <input id="find-city" type="submit" value="Search">
-          </form>
-       
-        </div>
-
-
-          <div class="container col-md-9">
-            <div class="row">
-              <!--Retrieved data will be dumped here-->
-              <div class="city"></div>
-              <div class="wind"></div>
-              <div class="humidity"></div>
-              <div class="temp"></div>
+                 <!--Retrieved data will be dumped here-->               
+                <div class="city"></div> 
+                <div class="temp"></div>             
+                <div class="humidity"></div>
+                <div class="wind"></div>
+                <div class="uvIndex"></div>
+              </div>
             </div>
 
-            <div class="row" id="forecast">
-
-            </div> 
           </div>
-
+        </div>
+            <div class="row" id="forecast">
+            </div> 
       </div>
+    
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="script.js"></script>
     </body>

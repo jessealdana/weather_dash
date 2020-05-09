@@ -1,5 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #fefefe;
 }
 
 header {
@@ -15,3 +16,4 @@ header {
     background-color: dodgerblue;
     color: white;
 }
+
