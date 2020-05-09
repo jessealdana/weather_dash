@@ -17,3 +17,11 @@ header {
     color: white;
 }
 
+.card-body {
+    background-color: dodgerblue;
+    color: white;
+    font-size: 16px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
